@@ -1,0 +1,1 @@
+This repo contains the code implementation I've done for my TIPE (cf CPGE) during the spring of 2019 where I studied the Enigma machine and its cracking by Alan Turing. This code simulates an Enigma machine and a beginning of decoding features.
