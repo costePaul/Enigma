@@ -1,17 +1,7 @@
 from utils import *
 
 # listes
-with open('./permutations_rotors.txt', 'r') as f:
-    permutations_rotors = f.read().split('\n')
-permutations_rotors = permutations_rotors[:3]
-with open('./permutations_reflecteur.txt', 'r') as f:
-    permutation_reflecteur = f.read().split('\n')
-permutation_reflecteur = permutation_reflecteur[:1]
-
-listes_rotors = grandptol(permutations_rotors)
-liste_reflecteur = grandptol(permutation_reflecteur)
-liste_reflecteur = liste_reflecteur[0]
-listes_rotormiroir = miroir_deepercarre(listes_rotors)
+listes_rotors, liste_reflecteur, liste_reflecteur, listes_rotormiroir = build_useful_listes()
 
 # reflecteur
 def reflecteur(entree):  # S 26 ne tourne pas à chaque permutation reflecteur

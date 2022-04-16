@@ -1,5 +1,5 @@
 from utils import *
-from components import codage
+from components import codage # demands that permutations_reflecteur.txt and permutations_rotors.txt exists
 list_placement = [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 2, 1], [3, 1, 2]]
 
 # Reflector = UKW B
