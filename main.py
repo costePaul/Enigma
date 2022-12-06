@@ -1,3 +1,6 @@
+import itertools
+# itertools.combinations(range(n),k)
+# itertools.permutations(range(n))
 from utils import *
 from components import codage # demands that permutations_reflecteur.txt and permutations_rotors.txt exists
 list_placement = [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 2, 1], [3, 1, 2]]
@@ -5,7 +8,9 @@ list_placement = [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 2, 1], [3, 1, 
 # Reflector = UKW B
 permutation_reflecteur = lettretop('YRUHQSLDPXNGOKMIEBFZCWVJAT')
 # print(permutation_reflecteur) # (ay)(br)(cu)(dh)(eq)(fs)(gl)(ip)(jx)(kn)(mo)(tz)(vw)
+
 plugboard = '(bq)(cr)(di)(ej)(kw)(mt)(os)(px)(uz)(gh)'
+
 # Model = Enigma M3
 rotors_formula = ['EKMFLGDQVZNTOWYHXUSPAIBRCJ','AJDKSIRUXBLHWTMCQGZNPYFVOE', 'BDFHJLCPRTXVZNYEIWGAKMUSQO','ESOVPZJAYQUIRHXLNFTGKDCMWB','VZBRGITYUPSDNHLXAWMJQOFECK','JPGVOUMFYQBENHZRDKASXLICTW','NZJHGRCXMYSWBOUFAIVLPEKQDT','FKQHTLXOCBJSPDZRAMEWNIUYGV']
 permutations_rotors = [lettretop(rotor) for rotor in rotors_formula]
@@ -24,7 +29,7 @@ def decode_for_3_rotors(fiche, cypher, looking_for, rotors_to_use):
             for j in range(1, 27):
                 for k in range(1, 27):
                     decod = codage(cypher, placement, ntol([i, j, k]), fiche)
-                    bool, index = test(looking_for, decod)
+                    bool, _ = test(looking_for, decod)
                     if bool:
                         print(decod)
                         print([i, j, k])
@@ -33,7 +38,8 @@ def decode_for_3_rotors(fiche, cypher, looking_for, rotors_to_use):
     print('the end', rotors_to_use)
 
 #temporary
-liste_3rotors_5 = create_3_among_8_list()
+liste_3rotors_5 = list(itertools.combinations(range(5),3)) 
+
 for rotors_to_use in liste_3rotors_5:
     _permutations_rotors = [permutations_rotors[index] for index in rotors_to_use]
     write_rotors_reflec(_permutations_rotors, permutation_reflecteur)
