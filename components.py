@@ -71,7 +71,8 @@ def enigma(message, ordre, decal, fiches):  # message:str de nb ordre:list decal
         code.append(auxenigma(lettre, ordre, decal, fiches))
     return lts(ntol(code))
 
-def codage(message, liste_ordre_rotors, position_rotors, permutation_fiches):  # message:str de lettres, ordre:list, pos:str, permu:list
+def codage(message, liste_ordre_rotors=[1,2,3], position_rotors="aaa", permutation_fiches=[]):
+    # message:str de lettres, ordre:list, pos:str, permu:list
     fiches = grandptol(permutation_fiches)
     if len(fiches) >= 1:
         fiches = fiches[0]
